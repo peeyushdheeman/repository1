@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 3 Demo</title>
+
+</head>
+
+<body>
+    <div id='vue_app'>
+        <h2 title='Vue.js 3'>
+            <!-- {{10>5}} -->
+            <!-- {{new Date()}} -->
+            <!-- {{console.log('no')}} no access to window obj.-->
+            {{msg.toUpperCase()}}
+        </h2>
+        <p>{{list[0]}} {{car.brand}} {{city}}</p>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        let app = Vue.createApp({
+            setup() {
+                return {
+                    city: 'London'
+                }
+            },
+            // options object
+            data() {
+                return {
+                    msg: 'Hello from Vue 3',
+                    list: ['apple', 'orange'],
+                    car: { brand: 'Nissan', model: 'GT-R' }
+                }
+            },
+            //delimiters:['${','}']
+        })
+        //app.config.compilerOptions.delimiters = ['${','}']
+        let vm = app.mount('#vue_app')
+    </script>
+</body>
+
+</html>
